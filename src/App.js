@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import BlogTile from './BlogTile';
+
+const posts = [
+  {
+    id: 1,
+    title: 'Pilne: Co to był za dzień!',
+    intro: 'Tego świat jeszcze nie widział'
+  }, {
+    id: 2,
+    title: 'Wszyscy zazdroszą Polakom!',
+    intro: 'Takiego clickbajtowego tytułu jeszcze nikt nie wymyślił'
+  }, {
+    id: 3,
+    title: 'Adam Małysz Zgolił wąs',
+    intro: 'Po przegranym zakładzie z Piotrem Żyłą nasz mistrz olimpijski zgolił wąsy'
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {posts.map(elem => {
+        return (
+          <BlogTile key={`news-${elem.id}`} title={elem.title} intro={elem.intro}/>
+        );
+      })}
+    </>
   );
 }
 
